@@ -1,0 +1,53 @@
+﻿@model IEnumerable<LTWeb05_Bai02.Models.Employee>
+
+@{
+    ViewBag.Title = "Danh sách nhân viên";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css"/>
+</head>
+<body>
+    <h2 class="fw-bold text-center mt-3" style="color: blue">Danh sách Nhân viên</h2>
+    <p>@Html.ActionLink("Thêm mới nhân viên", "Create", null, new { @class = "text-decoration-none" })</p>
+
+    <table class="table table-striped border">
+        <thead class="bg-primary text-white">
+            <tr>
+                <th>Mã nhân viên</th>
+                <th>Tên nhân viên</th>
+                <th>Giới tính</th>
+                <th>Tỉnh/Thành phố</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.MaNV)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ten)</td>
+                    <td>@Html.DisplayFor(modelItem => item.GioiTinh)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Tinh)</td>
+                    <td class="text-decoration-none">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MaNV }, new { @class = "text-decoration-none" })
+                        @Html.ActionLink("Details", "Details", new { id = item.MaNV }, new { @class = "text-decoration-none" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MaNV }, new { @class = "text-decoration-none" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,24 @@
+﻿@model LTWeb05_Bai02.Models.Department
+
+@{
+    ViewBag.Title = "Chi tiết phòng ban";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+</head>
+<body>
+    <h2 class="fw-bold text-center mt-3" style="color: blue">CHI TIẾT PHÒNG BAN</h2>
+    
+    <p><b>Mã PB: </b>@Model.MaPg</p>
+    <p><b>Tên PB: </b>@Model.TenPg</p>
+    <p><b>Số NV: </b>@ViewBag.SoNV</p>
+</body>
+</html>
+

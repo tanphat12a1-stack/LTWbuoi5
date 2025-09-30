@@ -1,0 +1,49 @@
+﻿@model IEnumerable<LTWeb05_Bai02.Models.Employee>
+
+@{
+    ViewBag.Title = "Nhân viên theo phòng ban";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+</head>
+<body>
+    <h2 class="fw-bold text-center mt-3" style="color: blue">DANH SÁCH NHÂN VIÊN THEO PHÒNG BAN</h2>
+    <p><b>PHÒNG: </b>@ViewBag.TenPg</p>
+
+    <table class="table table-striped border">
+        <thead class="bg-primary text-white">
+            <tr>
+                <th>Mã NV</th>
+                <th>Họ Tên</th>
+                <th>Giới Tính</th>
+                <th>Tỉnh/Thành Phố</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.MaNV)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ten)</td>
+                    <td>@Html.DisplayFor(modelItem => item.GioiTinh)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Tinh)</td>
+                    <td></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>@Html.ActionLink("Back to Department List", "HienThiPhongBan", null, new { @class = "text-decoration-none" })</p>
+</body>
+</html>
+
+
